@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,106 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+
+.main-container {
+  background: white;
+    margin: 0% 15%;
+    padding: 20px 15px;
+    min-height: 80vh;
+    color: #828487;
+    border-radius: 14px;
+    border: 1px solid #ccc;
+    filter: opacity(0.9);
+    width: 70%;
 }
+
+
+.main-container-heading{
+  background-color: darkcyan;
+  color: white;
+  padding: 8px;
+  border-radius: 40px;
+  text-align: center;
+  font-size: 24px;
+  opacity: 0.9;
+}
+
+
+
+.signin-container {
+  background: white;
+    margin: 0% 15%;
+    padding: 20px 15px;
+    min-height: 60vh;
+    color: #828487;
+    border-radius: 14px;
+    border: 1px solid #ccc;
+    filter: opacity(0.9);
+    width: 70%;
+}
+
+.heading{
+  text-align: center;
+  color: #FF8C40;
+}
+
+.subMenu{
+  font-size: 16px;
+  line-height: 1.2;
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  text-indent: 20px;
+  margin: 30px 6px;
+}
+
+strong {
+  font-weight: bolder;
+  color: #FF8C40;
+}
+
+
+ 
+table.reportTable {
+  width: 60%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+table.reportTable th, table.reportTable td {
+  border: 1px solid reportTable;
+  padding: 8px;
+  text-align: left;
+}
+
+table.reportTable th {
+  background-color: reportTable;
+  color: #333;
+}
+
+table.reportTable tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+li.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiMenuItem-gutters.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+p.MuiTypography-root.MuiTypography-body1.css-1uwgr7b-MuiTypography-root {
+  background: antiquewhite;
+  font-weight: 600;
+  background: none;
+}
+
+.registrationForm-container {
+  margin-top: 30px;
+  width: 100%;
+}
+
+

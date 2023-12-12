@@ -1,0 +1,59 @@
+.registerForm {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formLabel {
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+.formInput {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 15px;
+  padding: 5px;
+  font-size: 1em;
+}
+
+.formSelect {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 15px;
+  font-size: 1em;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 10px; /* Adjust the gap to control the space between buttons */
+}
+
+.buttonPrimary {
+  background-color: #2277d2; /* Change the color to your desired color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.buttonDanger {
+  background-color: #12a7dd;
+  color: white;
+  padding: 10px 20px; /* Adjust padding for consistency */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+}

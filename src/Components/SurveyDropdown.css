@@ -1,0 +1,41 @@
+/* SurveyDropdown.css */
+
+/* You can customize the width based on your preferences */
+#surveyDropdown {
+    width: 1000px;
+    height:300px;
+    padding:50px; /* Adjust the width as needed */
+  }
+  
+.survey-submission-container{
+  padding:10px;
+}
+.survey-subheading{
+  color: #FF8C40;
+    font-size: 24px;
+}
+
+.survey-select{
+  width: 30%;
+}
+
+.survey-subMenu{
+  color: #FF8C40;
+}
+
+.survey-question{
+  color: black;
+  font-size: 20px;
+}
+
+
+.survey-questionsCard{
+  margin: 10px;
+  padding: 10px 10px;
+  margin-top: 10px;
+}
+
+option {
+  padding: 10px;
+  font-size: 12px;
+}
