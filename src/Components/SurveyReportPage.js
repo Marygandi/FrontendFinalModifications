@@ -1,6 +1,8 @@
 // SurveyReportPage.jsx
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { PieChart, Pie } from "recharts";
+
 
 const SurveyReportPage = () => {
   const { surveyId } = useParams();
@@ -8,6 +10,7 @@ const SurveyReportPage = () => {
     username: "",
     respondentCount: 0,
   });
+  const [surveyData,setSurveyData]=useState([{name:"",respondentCount:5}]);
 
   useEffect(() => {
     // Fetch survey report data based on the surveyId
@@ -18,6 +21,7 @@ const SurveyReportPage = () => {
         );
         if (response.ok) {
           const data = await response.json();
+          setSurveyData([{name:data.surveyTitle,value:data.respondentCount}])
           setSurveyReportData(data);
         } else {
           console.error("Failed to fetch survey report data");
@@ -36,7 +40,8 @@ const SurveyReportPage = () => {
       <p>Respondent Count: {surveyReportData.respondentCount}</p>
       <div>
         <h5>Usernames:</h5>
-        <table class="reportTable" >
+       <div>
+       <table class="reportTable" >
           <thead>
             <tr>
               <th>Index</th>
@@ -53,6 +58,23 @@ const SurveyReportPage = () => {
               ))}
           </tbody>
         </table>
+<br/>
+<br/>
+<br/>
+        <div>
+          <h6>Title : {surveyData[0].name}</h6>
+        <PieChart width={400} height={400}>
+      <Pie
+        data={surveyData}
+        dataKey="value"
+        cx={200}
+        cy={200}
+        outerRadius={60}
+        fill="#8884d8"
+      />
+    </PieChart>
+        </div>
+       </div>
       </div>
     </div>
   );

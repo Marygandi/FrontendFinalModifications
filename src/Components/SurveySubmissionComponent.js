@@ -30,12 +30,13 @@ function SurveySubmissionComponent({
   const surveydata = useSelector(state => state);
   const [selectedValues, setSelectedValues] = useState([]);
   const [requestPayload,setRequestPayload]=useState([]);
-const emailRef=useRef()
+  const emailRef=useRef()
   const [mailAddressBar,setMailAddressBar]=useState(false);
   const [showEmailId,setShowEmailId]=useState(false);
+  
   useEffect(() => {
    console.log('&&&&&&&&',requestPayload);
-  });
+  },[]);
 
   useEffect(() => {
     // Fetch surveys on component mount
@@ -125,8 +126,10 @@ const emailRef=useRef()
   };
 
   const handleSubmit = () => {
+    console.log('selected multiple answers')
+    console.log(requestPayload)
     const submissionData = {
-      Username: "mouni", // Hardcoded for now, replace with dynamic value
+      Username: "mahi", // Hardcoded for now, replace with dynamic value
       SurveyId: selectedSurveyId,
       QuestionResponses: 
       //Object.entries(selectedMultipleChoiceAnswers).map(([questionId, answerId]) => ({

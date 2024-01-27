@@ -23,7 +23,7 @@ function ResponsiveAppBar({ isLoggedIn,handleLogout,role }) {
 
 
   if(role=='admin'){
-    pages=["Home", "Surveys", "Create Survey", "Survey Reports"];
+    pages=["Home", "Surveys","Surveys List", "Create Survey", "Survey Reports"];
   }
   else 
   if(role=='user'){
@@ -63,6 +63,11 @@ function ResponsiveAppBar({ isLoggedIn,handleLogout,role }) {
     }
     if (value === "Register") {
       navigate("/register");
+    }
+
+    if(value==="Surveys List"){
+
+      navigate("/surveyslist")
     }
    
     if(value==="Logout"){
@@ -111,7 +116,7 @@ function ResponsiveAppBar({ isLoggedIn,handleLogout,role }) {
             >
               <MenuIcon />
             </IconButton>
-            <Menu
+           {anchorElNav &&  <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -151,7 +156,7 @@ function ResponsiveAppBar({ isLoggedIn,handleLogout,role }) {
 
               </div>
               
-            </Menu>
+            </Menu> }
           </Box>
           <Typography
             variant="h5"
@@ -201,28 +206,31 @@ function ResponsiveAppBar({ isLoggedIn,handleLogout,role }) {
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={()=>handleCloseNavMenu(setting)}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+           {  anchorElUser 
+           && 
+           <Menu
+           sx={{ mt: "45px" }}
+           id="menu-appbar"
+           anchorEl={anchorElUser}
+           anchorOrigin={{
+             vertical: "top",
+             horizontal: "right",
+           }}
+           keepMounted
+           transformOrigin={{
+             vertical: "top",
+             horizontal: "right",
+           }}
+           open={Boolean(anchorElUser)}
+           onClose={handleCloseUserMenu}
+         >
+           {settings.map((setting) => (
+             <MenuItem key={setting} onClick={()=>handleCloseNavMenu(setting)}>
+               <Typography textAlign="center">{setting}</Typography>
+             </MenuItem>
+           ))}
+         </Menu>
+           } 
           </Box>
         }
         </Toolbar>

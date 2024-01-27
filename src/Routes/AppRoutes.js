@@ -10,6 +10,7 @@ import SurveyReportComponent from '../Components/SurveyReportComponent'; // Impo
 import SurveyReportPage from '../Components/SurveyReportPage'; // Import the new page component
 import Protected from './Protected';
 import Profile from '../Components/Profile/Profile';
+import SurveysList from '../Components/SurveysList/SurveysList';
 
 
 const AppRoutes = (  {isLoggedIn,isLoginSelected,isRegisterSelected,
@@ -87,6 +88,7 @@ const AppRoutes = (  {isLoggedIn,isLoginSelected,isRegisterSelected,
       {/* New route for the SurveyReportPage */}
       <Route path="/survey-report/:surveyId" element={<SurveyReportPage />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path='/surveyslist' element={(isLoggedIn && role.toLowerCase()=="admin" ) && <SurveysList/>}/>
     </Routes>
   );
 };
