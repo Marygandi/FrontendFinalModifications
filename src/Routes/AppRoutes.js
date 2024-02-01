@@ -11,6 +11,7 @@ import SurveyReportPage from '../Components/SurveyReportPage'; // Import the new
 import Protected from './Protected';
 import Profile from '../Components/Profile/Profile';
 import SurveysList from '../Components/SurveysList/SurveysList';
+//import SurveyEditComponent from '../Components/SurveyEditComponent/SurveyEditComponent';
 
 
 const AppRoutes = (  {isLoggedIn,isLoginSelected,isRegisterSelected,
@@ -89,6 +90,7 @@ const AppRoutes = (  {isLoggedIn,isLoginSelected,isRegisterSelected,
       <Route path="/survey-report/:surveyId" element={<SurveyReportPage />} />
       <Route path="/profile" element={<Profile />} />
       <Route path='/surveyslist' element={(isLoggedIn && role.toLowerCase()=="admin" ) && <SurveysList/>}/>
+      {/* <Route path='/SurveyEditComponent' element={(isLoggedIn&& role.toLowerCase()=="admin" ) && <SurveyEditComponent/>}/> */}
     </Routes>
   );
 };

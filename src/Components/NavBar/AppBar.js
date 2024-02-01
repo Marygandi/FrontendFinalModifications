@@ -65,10 +65,14 @@ function ResponsiveAppBar({ isLoggedIn,handleLogout,role }) {
       navigate("/register");
     }
 
-    if(value==="Surveys List"){
+     if(value==="Surveys List"){
 
-      navigate("/surveyslist")
-    }
+       navigate("/surveyslist")
+     }
+    // if(value==="SurveyEditComponent"){
+
+    //      navigate("/SurveyEditComponent")
+    //    }
    
     if(value==="Logout"){
       handleLogout()
