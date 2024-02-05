@@ -165,12 +165,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './surveysList.css';
+import { useNavigate } from "react-router-dom";
 
 const SurveysList = () => {
   const [surveys, setSurveys] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [questionsArray, setQuestionsArray] = useState([]);
+  const navigate=useNavigate();
 
   // State for modal
   const [showEditModal, setShowEditModal] = useState(false);
@@ -196,21 +198,7 @@ const SurveysList = () => {
   }, []);
 
   const handleEditSurvey = async (surveyId) => {
-    try {
-      const response = await axios.get(`http://localhost:5095/api/Survey/survey1/${surveyId}`);
-      const surveyData = response.data;
-      const questionsArray2 = Object.values(surveyData.questions || {});
-      setQuestionsArray(questionsArray2);
-
-      setEditSurveyId(surveyId);
-      setEditSurveyData({
-        title: surveyData.title,
-        questions: questionsArray2,
-      });
-      setShowEditModal(true);
-    } catch (error) {
-      console.error("Error fetching survey data for editing:", error.message);
-    }
+    navigate('/EditQuestion',{state:{surveyId}});
   };
 
   const handleSaveEdit = async () => {
@@ -247,7 +235,7 @@ const SurveysList = () => {
   };
 
   return (
-    <>
+    <div>
       <h5 className="surveysList-heading">List of Surveys Available:</h5>
       {loading && <p>Loading surveys...</p>}
       {error && <p>Error fetching surveys: {error.message}</p>}
@@ -264,61 +252,7 @@ const SurveysList = () => {
           ))}
         </ul>
       )}
-
-      {/* Edit Modal */}
-      {showEditModal && (
-        <div className="edit-modal">
-          <h2>Edit Survey</h2>
-          <form>
-            <label>Title:</label>
-            <input
-              type="text"
-              value={editSurveyData.title}
-              onChange={(e) => setEditSurveyData({ ...editSurveyData, title: e.target.value })}
-            />
-
-            {/* Edit questions and answers */}
-           
-            <h3>Edit Questions:</h3>
-            {questionsArray.map((question) => (
-              <div key={question.id}>
-                <label>Edit Question {question.id}:</label>
-                <input
-                  type="text"
-                  value={question.text}
-                  onChange={(e) => {
-                    const editedQuestion = { ...question, text: e.target.value };
-                    handleEditQuestion(question.id, editedQuestion);
-                  }}
-                />
-                <label>Edit Answers:</label>
-                {question.answers && question.answers.map((answer, answerIndex) => (
-                  <div key={answerIndex}>
-                    <input
-                      type="text"
-                      value={answer}
-                      onChange={(e) => {
-                        const editedAnswers = [...question.answers];
-                        editedAnswers[answerIndex] = e.target.value;
-                        const editedQuestion = { ...question, answers: editedAnswers };
-                        handleEditQuestion(question.id, editedQuestion);
-                      }}
-                    />
-                  </div>
-                ))}
-              </div>
-            ))}
-
-            <button type="button" onClick={handleSaveEdit}>
-              Save
-            </button>
-            <button type="button" onClick={() => setShowEditModal(false)}>
-              Cancel
-            </button>
-          </form>
-        </div>
-      )}
-    </>
+    </div>
   );
 };
 

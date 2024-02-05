@@ -11,6 +11,7 @@ import SurveyReportPage from '../Components/SurveyReportPage'; // Import the new
 import Protected from './Protected';
 import Profile from '../Components/Profile/Profile';
 import SurveysList from '../Components/SurveysList/SurveysList';
+import EditQuestion from '../Components/SurveysList/EditQuestion';
 //import SurveyEditComponent from '../Components/SurveyEditComponent/SurveyEditComponent';
 
 
@@ -38,6 +39,7 @@ const AppRoutes = (  {isLoggedIn,isLoginSelected,isRegisterSelected,
   return (
     <Routes>
       <Route path="/" element={<Welcome />} />
+      <Route path="/EditQuestion" element={<EditQuestion/>}/>
       <Route exact path="/home" element={<Home />} />
       <Route
         path="/login"
