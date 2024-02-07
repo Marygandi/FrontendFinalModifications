@@ -1,7 +1,53 @@
-.surveysList-heading{
-    background-color: darkcyan;
-    color: #f4f4f4;
-    border-radius: 40px;
-    padding: 8px;
-    padding-left: 40px;
+/* SurveyList.css */
+
+/* Style for the container of survey tiles */
+.survey-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Align surveys to the center */
 }
+
+  
+  /* Style for each individual survey tile */
+  .survey-tile {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+  }
+  /* Hover effect for survey tiles */
+.survey-tile:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+}
+  /* Style for the question input */
+  .question-input {
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the answer input */
+  .answer-input {
+    margin-bottom: 5px;
+  }
+  
+  /* Style for the update button */
+  .update-button {
+    margin-top: 10px;
+  }
+  .survey-container {
+    text-align: center; /* Align surveys to the center */
+  }
+  
+  .survey-tile {
+    display: inline-block; /* Display surveys side by side */
+    width: 200px; /* Set width of each survey tile */
+    margin: 10px; /* Add margin around each survey tile */
+    padding: 10px; /* Add padding inside each survey tile */
+    border: 1px solid #ccc; /* Add border to each survey tile */
+  }
+  
+  .button-container {
+    margin-top: 10px;
+    margin-left:5px; /* Add margin on top of the button container */
+  }
+  
+  

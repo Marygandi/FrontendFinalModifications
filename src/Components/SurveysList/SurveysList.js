@@ -171,16 +171,7 @@ const SurveysList = () => {
   const [surveys, setSurveys] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [questionsArray, setQuestionsArray] = useState([]);
-  const navigate=useNavigate();
-
-  // State for modal
-  const [showEditModal, setShowEditModal] = useState(false);
-  const [editSurveyId, setEditSurveyId] = useState(null);
-  const [editSurveyData, setEditSurveyData] = useState({
-    title: "",
-    questions: [],
-  });
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSurveys = async () => {
@@ -198,59 +189,43 @@ const SurveysList = () => {
   }, []);
 
   const handleEditSurvey = async (surveyId) => {
-    navigate('/EditQuestion',{state:{surveyId}});
-  };
-
-  const handleSaveEdit = async () => {
-    try {
-      await axios.put(`http://localhost:5095/api/Survey/${editSurveyId}`, editSurveyData);
-      setShowEditModal(false);
-    } catch (error) {
-      console.error("Error saving edited survey:", error.message);
-    }
+    navigate('/EditQuestion', { state: { surveyId } });
   };
 
   const handleDeleteSurvey = async (surveyId) => {
     try {
-      await axios.delete(`http://localhost:5095/api/Survey/${surveyId}`);
+      // Send a DELETE request to delete the survey
+      await axios.delete(`http://localhost:5095/api/SurveyEdit/${surveyId}`);
+      // Filter out the deleted survey from the surveys state
       const updatedSurveys = surveys.filter((survey) => survey.id !== surveyId);
       setSurveys(updatedSurveys);
     } catch (error) {
       console.error("Error deleting survey:", error.message);
     }
   };
-  //console.log("answers",questionsArray)
-
-  const handleEditQuestion = (questionId, editedQuestion) => {
-    setEditSurveyData((prevData) => {
-      const updatedQuestions = [...prevData.questions];
-      const questionIndex = updatedQuestions.findIndex((question) => question.id === questionId);
-      
-      if (questionIndex !== -1) {
-        updatedQuestions[questionIndex] = editedQuestion;
-      }
-
-      return { ...prevData, questions: updatedQuestions };
-    });
-  };
 
   return (
-    <div>
+    <div className="survey-container">
       <h5 className="surveysList-heading">List of Surveys Available:</h5>
       {loading && <p>Loading surveys...</p>}
       {error && <p>Error fetching surveys: {error.message}</p>}
       {surveys.length > 0 && (
-        <ul>
+        <div>
           {surveys.map((survey) => (
-            <li key={survey.id}>
-              Survey ID: {survey.id}, Title: {survey.title}
-              <div>
-                <button onClick={() => handleEditSurvey(survey.id)}>Edit</button>
-                <button onClick={() => handleDeleteSurvey(survey.id)}>Delete</button>
+            <div
+              key={survey.id}
+              className="survey-tile"
+              onClick={() => handleEditSurvey(survey.id)}
+            >
+              <p>Survey ID: {survey.id}</p>
+              <p>Title: {survey.title}</p>
+              <div className="button-container">
+                <button onClick={(e) => { e.stopPropagation(); handleEditSurvey(survey.id) }}>Edit</button>
+                <button onClick={(e) => { e.stopPropagation(); handleDeleteSurvey(survey.id) }}>Delete</button>
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
