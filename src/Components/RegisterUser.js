@@ -56,7 +56,7 @@ function Register() {
       .post("http://localhost:5095/api/Customer/Register", {
         username: username,
         email: email,
-        role: role,
+        role: "user",
         password: password,
       })
       .then((response) => {
@@ -136,7 +136,7 @@ function Register() {
             setRePassword(e.target.value);
           }}
         />
-        <label className="form-control">Role</label>
+        {/* <label className="form-control">Role</label>
         <select
           className="form-select"
           onChange={(e) => {
@@ -149,7 +149,7 @@ function Register() {
               {r}
             </option>
           ))}
-        </select>
+        </select> */}
         <br />
         <button className="btn btn-primary button" onClick={signUp}>
           Sign Up

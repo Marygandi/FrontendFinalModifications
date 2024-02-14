@@ -1,53 +1,71 @@
-/* SurveyList.css */
-
 /* Style for the container of survey tiles */
 .survey-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Align surveys to the center */
+  display: flex;
+  flex-wrap: wrap;
+  
+  justify-content: center; /* Align surveys to the center */
 }
 
-  
-  /* Style for each individual survey tile */
-  .survey-tile {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    width: 200px;
-  }
-  /* Hover effect for survey tiles */
-.survey-tile:hover {
-    background-color: #f0f0f0; /* Change background color on hover */
+/* Style for each individual survey tile */
+.survey-tile {
+  display: inline-block; /* Display surveys side by side */
+  width: 250px; /* Set width of each survey tile */
+  height: 200px; /* Set fixed height for each survey tile */
+  margin: 10px; /* Add margin around each survey tile */
+  padding: 30px; /* Add padding inside each survey tile */
+  border: 1px solid #ccc; /* Add border to each survey tile */
 }
-  /* Style for the question input */
-  .question-input {
-    margin-bottom: 10px;
-  }
+
+/* Hover effect for survey tiles */
+.survey-tile:hover {
+  background-color: #f0f0f0; /* Change background color on hover */
+}
+
+/* Style for the question input */
+.question-input {
+  margin-bottom: 10px;
+}
+
+/* Style for the answer input */
+.answer-input {
+  margin-bottom: 5px;
+}
+
+/* Style for the update button */
+.update-button {
+  margin-top: 10px;
+}
+
+/* Center align survey container */
+.survey-container {
+  text-align: center;
+}
+
+/* Style for the button container */
+.button-container {
+  margin-top: 10px;
+  margin-right:5px;
   
-  /* Style for the answer input */
-  .answer-input {
-    margin-bottom: 5px;
-  }
-  
-  /* Style for the update button */
-  .update-button {
-    margin-top: 10px;
-  }
-  .survey-container {
-    text-align: center; /* Align surveys to the center */
-  }
-  
-  .survey-tile {
-    display: inline-block; /* Display surveys side by side */
-    width: 200px; /* Set width of each survey tile */
-    margin: 10px; /* Add margin around each survey tile */
-    padding: 10px; /* Add padding inside each survey tile */
-    border: 1px solid #ccc; /* Add border to each survey tile */
-  }
-  
-  .button-container {
-    margin-top: 10px;
-    margin-left:5px; /* Add margin on top of the button container */
-  }
-  
-  
+  margin-left: 5px; /* Add margin on top of the button container */
+}
+/* Style for the update button */
+.update-button {
+  width: 20%;
+  padding: 5px 5pxx;
+  background-color:  #2fbccc;
+  color: #fff;
+  border: 1px solid #3775bb;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  /* Center the button horizontally */
+  /* margin-left: auto;
+  margin-right: auto; */
+  display: block; /* Ensures margin auto works */
+}
+
+.update-button:hover {
+  background-color: #3a64d8;
+  border-color: #3abbd8;
+}

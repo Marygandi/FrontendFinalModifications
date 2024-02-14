@@ -64,7 +64,7 @@ export default function SignInSide() {
               Sign in
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-              <TextField
+              {/* <TextField
                 margin="normal"
                 required
                 fullWidth
@@ -73,7 +73,7 @@ export default function SignInSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
-              />
+              /> */}
               <TextField
                 margin="normal"
                 required

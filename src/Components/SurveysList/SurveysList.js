@@ -217,8 +217,8 @@ const SurveysList = () => {
               className="survey-tile"
               onClick={() => handleEditSurvey(survey.id)}
             >
-              <p>Survey ID: {survey.id}</p>
-              <p>Title: {survey.title}</p>
+              {/* <p>Survey ID: {survey.id}</p> */}
+              <h6> {survey.title}</h6>
               <div className="button-container">
                 <button onClick={(e) => { e.stopPropagation(); handleEditSurvey(survey.id) }}>Edit</button>
                 <button onClick={(e) => { e.stopPropagation(); handleDeleteSurvey(survey.id) }}>Delete</button>

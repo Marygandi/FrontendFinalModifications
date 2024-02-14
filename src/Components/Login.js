@@ -42,7 +42,7 @@ function Login({ onLogin }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
+  var [role, setRole] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const handleSubmit = (event) => {
@@ -59,21 +59,21 @@ function Login({ onLogin }) {
       return false;
     }
 
-    if (email === "") {
-      setEmailError("Email cannot be empty");
-      return false;
-    } else if (!isValidEmail(email)) {
-      setEmailError("Invalid email format");
-      return false;
-    }
+    // if (email === "") {
+    //   setEmailError("Email cannot be empty");
+    //   return false;
+    // } else if (!isValidEmail(email)) {
+    //   setEmailError("Invalid email format");
+    //   return false;
+    // }
 
     if (password === "") {
       return false;
     }
 
-    if (role === "") {
-      return false;
-    }
+    // if (role === "") {
+    //   return false;
+    // }
 
     return true;
   };
@@ -91,7 +91,13 @@ function Login({ onLogin }) {
       alert("Please check your data");
       return;
     }
-
+    role="user";
+    if (username === "mary"){
+        role="admin";
+    }
+    else {
+      role ="user";
+  }
     axios
       .post("http://localhost:5095/api/Customer/Login", {
         username: username,
@@ -158,7 +164,7 @@ function Login({ onLogin }) {
                     setUsername(e.target.value);
                   }}
                 />
-                <TextField
+                {/* <TextField
                   margin="normal"
                   required
                   fullWidth
@@ -171,7 +177,7 @@ function Login({ onLogin }) {
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
-                />
+                /> */}
                 <TextField
                   margin="normal"
                   required
@@ -186,7 +192,7 @@ function Login({ onLogin }) {
                     setPassword(e.target.value);
                   }}
                 />
-                <TextField
+                {/* <TextField
                   margin="normal"
                   required
                   fullWidth
@@ -198,7 +204,7 @@ function Login({ onLogin }) {
                   onChange={(e) => {
                     setRole(e.target.value);
                   }}
-                />
+                /> */}
                 <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
                   label="Remember me"

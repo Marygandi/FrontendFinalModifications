@@ -90,7 +90,8 @@ function EditQuestion() {
       {questions.map((ques, questionIndex) => (
         <div key={ques.id}>
           <div>
-            <h5>Question {ques.id}</h5>
+            {/* <h5>Question {ques.id}</h5> */}
+            <h5>Question {questionIndex + 1}</h5>
             <input
               value={ques.text || ''}
               onChange={(e) => handleInputChange(questionIndex, e.target.value, ques.type, ques.id, ques.surveyId)}
@@ -104,7 +105,8 @@ function EditQuestion() {
               />
             </div>
           ))}
-          <button className="btn btn-primary" onClick={updateQuestion}>Update</button>
+          {/* <button className="btn btn-primary" onClick={updateQuestion}>Update</button> */}
+          <button className="update-button" onClick={updateQuestion}>Update</button>
         </div>
       ))}
     </div>
